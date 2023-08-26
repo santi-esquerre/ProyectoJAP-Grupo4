@@ -24,7 +24,9 @@ function showProductList(array) {
   document.getElementById("pro-list-container").innerHTML = htmlContentToAppend;
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
+
   const CatID = localStorage.getItem("CatID");
   if (CatID) {
     const LIST_URL = `https://japceibal.github.io/emercado-api/cats_products/${CatID}.json`;
@@ -97,5 +99,23 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       showProductList(productsArray);
     }
+  });
+  const filterBtn = document.getElementById("rangeFilterPrice");
+  filterBtn.addEventListener("click", () => {
+    const minPrice = document.getElementById("priceMin").value;
+    const maxPrice = document.getElementById("priceMax").value;
+    const filterProducts = productsArray.filter((product) => {
+      return (isNaN(minPrice) || product.cost >= minPrice) && (isNaN(maxPrice) || product.cost <= maxPrice);
+    });
+
+    showProductList(filterProducts);
+  });
+  const limpiar = document.getElementById("clearRangeFilter");
+  limpiar.addEventListener("click", function () {
+    document.getElementsById("productSearch").value = "";
+    const minPrice = document.getElementById("priceMin").value = "";
+    const maxPrice = document.getElementById("priceMax").value = "";
+
+    showProductList(productsArray);
   });
 });

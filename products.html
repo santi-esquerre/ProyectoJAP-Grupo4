@@ -9,6 +9,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  <script src="js/navbar.js"></script>
 </head>
 
 <body>
@@ -36,8 +38,8 @@
   </nav>
   <main role="main" class="pb-5">
     <div class="text-center p-4">
-      <h2>Productos</h2>
-      <p class="lead">
+      <h4>Productos</h4>
+      <p>
         Verás aquí todos los productos de la categoria
         <b><span id="nombre_articulo"></span></b>
       </p>
@@ -70,29 +72,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-          <div class="row container p-0 m-0">
-            <div class="col">
-              <p class="font-weight-normal text-end my-2">Precio</p>
-            </div>
-            <div class="col">
-              <input class="form-control" placeholder="min." id="priceMin">
-            </div>
-            <div class="col">
-              <input class="form-control" placeholder="máx." id="priceMax">
-            </div>
-            <div class="col-3 p-0">
-              <div class="btn-group" role="group">
-                <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
-                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="list-group" id="pro-list-container"></div>
-        </div>
+        <div class="list-group" id="pro-list-container"></div>
       </div>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">

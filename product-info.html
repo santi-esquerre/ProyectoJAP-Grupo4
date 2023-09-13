@@ -53,15 +53,19 @@
               <a class="nav-link" id="username-display" href="#"> </a>
               <!-- Botón de cerrar sesión (oculta inicialmente style="display: none;") -->
               <ul
-                id="logout-button"
+                id="user-DropDown"
                 style="display: none"
                 class="position-absolute bg-dark dropdown-menu dropdown-menu-end"
               >
                 <li>
-                  <a class="nav-link" href="my-profile.html">Mi perfil</a>
+                  <a class="nav-link" href="my-profile.html">
+                    <i class="fa fa-user"></i> Mi perfil</a
+                  >
                 </li>
                 <li>
-                  <a class="nav-link" href="login.html">Cerrar sesión</a>
+                  <a id="logout" class="nav-link" href="login.html">
+                    <i class="fa fa-sign-out-alt"></i> Cerrar sesión</a
+                  >
                 </li>
               </ul>
             </li>
@@ -122,13 +126,53 @@
 
             <p id="prodSoldCount" class="text-muted">Vendidos:</p>
 
-            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+            <a href="cart.html" class="btn btn-outline-dark flex-shrink-0">
+              <i class="fa fa-shopping-cart"> </i> Agregar al carrito</a
+            >
           </div>
         </div>
       </div>
       <!--* Comment container -->
-      <div class="container my-5" id="comments-container">
-        <h2>Comentarios</h2>
+      <div class="container my-5" id="comments-container"></div>
+      <!-- * Comment add form -->
+      <div class="container my-5" id="comment-container">
+        <form id="comentarioForm">
+          <div class="mb-3">
+            <label for="comment" class="form-label"
+              ><h3>Agregar comentario</h3></label
+            ><br />
+            <textarea
+              class="form-control"
+              name="comment"
+              id="comment"
+              cols="50"
+              rows="5"
+            >
+            </textarea>
+          </div>
+          <div class="mb-3">
+            <label for="score" class="form-label"
+              >Califica este producto:</label
+            >
+            <div>
+              <div class="score cursor-active mb-3" style="font-size: x-large">
+                <span class="star fa fa-star"></span>
+                <span class="star fa fa-star"></span>
+                <span class="star fa fa-star"></span>
+                <span class="star fa fa-star"></span>
+                <span class="star fa fa-star"></span>
+              </div>
+              <input type="hidden" id="score" name="opinion" min="1" max="5" />
+            </div>
+            <button
+              id="send-comment"
+              type="submit"
+              class="btn btn-outline-dark flex-shrink-0"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
       </div>
       <div class="container my-5" id="new-container"></div>
       
@@ -141,7 +185,6 @@
       <!--* Related products container -->
       <div class="container my-5">
         <h2 class="mb-4">Productos relacionados</h2>
-
         <div class="row" id="relProdContainer"></div>
       </div>
     </main>

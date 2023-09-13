@@ -1,8 +1,12 @@
+@font-face {
+  font-family: Poppins;
+  src: url(webfonts\Poppins-Regular.ttf);
+}
 .jumbotron,
 .card-body,
 .container,
 .site-header {
-  font-family: 'Verdana', serif !important;
+  font-family: 'Poppins' !important;
 }
 
 .jumbotron .display-4 {

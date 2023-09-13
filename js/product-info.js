@@ -148,3 +148,42 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("No hay producto seleccionado.");
   }
 });
+
+// CODIGO QUE AGREGA LOS COMENTARIOS 
+// Referencias a los elementos del formulario
+
+const commentTextarea = document.getElementById("comment");
+const scoreInput = document.getElementById("score");
+const sendCommentButton = document.getElementById("send-comment");
+
+// Agregar evento de clic al botón de enviar comentario
+sendCommentButton.addEventListener("click", function () {
+
+  //Obtiene el contenido del comentario y la puntuación
+  const newCommentText = commentTextarea.value.trim();
+  const newCommentScore = parseInt(scoreInput.value);
+
+  // Evalua si se ingresó comentario valido 
+  if (newCommentText === "" || isNaN(newCommentScore) || newCommentScore < 1 || newCommentScore > 5) {
+    alert("ERROR!, ingresa un comentario válido y una puntuación entre 1 y 5.");
+    return;
+  }
+
+  //Crea un nuevo objeto (comentario)
+  const newComment = {
+    description: newCommentText,
+    score: newCommentScore,
+    user: "Usuario",
+    dateTime: new Date().toString(),
+  };
+
+  // Agregar el nuevo comentario
+  comments.push(newComment);
+
+  // Limpia el área de los comentarios
+  commentTextarea.value = "";
+  scoreInput.value = "";
+
+  // Muestra todos los comentarios, incluido el nuevo
+  displayProductComments(comments);
+});

@@ -116,7 +116,7 @@ nav a {
 }
 
 @media (min-width: 768px) {
-  .jumbotron, .jumbotronDark {
+  .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }

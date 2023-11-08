@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnmode = document.getElementById("mode-toggle");
   let isEnabled = DarkReader.isEnabled();
   let selectedMode = localStorage.getItem("darkMode");
-  const imgJumbo = document.querySelector("#jumbotron");
+  const imgLight = document.getElementById("jumbotron");
+  const imgDark = document.getElementById("jumbotronDark")
 
   if (selectedMode === "true") {
     DarkReader.enable({
@@ -11,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
       sepia: 0,
     });
     isEnabled = true;
-    imgJumbo.classList.remove("jumbotron")
-    imgJumbo.classList.add("jumbotronDark")
+    imgLight.classList.add("d-none");
+    imgDark.classList.remove("d-none")
   } else {
     DarkReader.disable();
     isEnabled = false;
@@ -31,16 +32,16 @@ document.addEventListener("DOMContentLoaded", function () {
   btnmode.addEventListener("click", () => {
     if (isEnabled) {
       DarkReader.disable();
-      imgJumbo.classList.add("jumbotron")
-      imgJumbo.classList.remove("jumbotronDark")
+      imgLight.classList.remove("d-none");
+      imgDark.classList.add("d-none")
     } else {
       DarkReader.enable({
         brightness: 100,
         contrast: 90,
         sepia: 0,
       });
-      imgJumbo.classList.remove("jumbotron")
-      imgJumbo.classList.add("jumbotronDark")
+      imgLight.classList.add("d-none");
+      imgDark.classList.remove("d-none")
     }
     isEnabled = !isEnabled;
     changeButton();

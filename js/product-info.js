@@ -1,8 +1,14 @@
+// Array para almacenar todos los comentarios y comentarios propios del usuario
 var comments = [];
 var myComments = [];
+
+// Variable para almacenar la puntuación seleccionada por el usuario
 var selectedStars = 0;
+
+// Variable que representa la barra de navegación
 var navBar;
 
+// Función que calcula la diferencia de tiempo entre la fecha actual y una fecha dada
 function calcularDiferenciaDeTiempo(fechaString) {
   var ahora = new Date();
   var fecha = new Date(fechaString);
@@ -32,6 +38,7 @@ function calcularDiferenciaDeTiempo(fechaString) {
   }
 }
 
+// Función para obtener información del producto mediante una solicitud a una API
 function fetchProductInfo(id) {
   getJSONData(`https://japceibal.github.io/emercado-api/products/${id}.json`)
     .then((result) => {
@@ -42,6 +49,7 @@ function fetchProductInfo(id) {
     });
 }
 
+// Función para mostrar la información del producto en la página
 function chargeProductInfo(data) {
   let title = document.getElementById("prodTitle");
   let description = document.getElementById("prodDescription");
@@ -53,6 +61,7 @@ function chargeProductInfo(data) {
   let carouselIndicators = document.getElementById("cIndicators");
   let agregarAlCarrito = document.getElementById("agregarAlCarrito");
 
+  // Agrega un evento de clic al botón "Agregar al Carrito"
   agregarAlCarrito.addEventListener("click", () => {
     const productID = localStorage.getItem("selectedProductId");
     const productName = data.name;
@@ -85,11 +94,13 @@ function chargeProductInfo(data) {
 
     localStorage.setItem("cart", JSON.stringify(cart)); // Guarda el carrito actualizado
 
+    // Muestra un mensaje de éxito utilizando Bootstrap Toast
     const toastLiveExample = document.getElementById("liveToast");
     const toastBootstrap = new bootstrap.Toast(toastLiveExample);
     toastBootstrap.show();
   });
 
+  // Actualiza elementos del DOM con la información del producto
   title.textContent = data.name;
   description.textContent = data.description;
   price.textContent =
@@ -99,6 +110,8 @@ function chargeProductInfo(data) {
     data.currency +
     " " +
     Intl.NumberFormat("es-ES").format(data.cost + data.cost * 0.5);
+
+  // Itera sobre las imágenes del producto y actualiza el carrusel y los indicadores
   data.images.forEach((image, index) => {
     productImages.innerHTML += `<div class="carousel-item">
               <img src="${image}" class="d-block img-thumbnail rounded mx-auto w-100" alt="..." />
@@ -109,6 +122,7 @@ function chargeProductInfo(data) {
   carouselIndicators.firstElementChild.classList.add("active");
   productImages.firstElementChild.classList.add("active");
 
+  // Itera sobre los productos relacionados y actualiza la sección de productos relacionados
   data.relatedProducts.forEach((product) => {
     relatedProducts.innerHTML += `<div class="col-md-3">
         <div class="card related-product" onclick="reloadProductInfo(${product.id})" style="cursor:pointer;">
@@ -122,6 +136,7 @@ function chargeProductInfo(data) {
   });
 }
 
+// Función para obtener comentarios del producto mediante una solicitud a una API
 function fetchProductComment(id, myComments) {
   getJSONData(
     `https://japceibal.github.io/emercado-api/products_comments/${id}.json`
@@ -135,6 +150,7 @@ function fetchProductComment(id, myComments) {
     });
 }
 
+// Función para mostrar comentarios en la página
 function displayProductComments(comments) {
   let commentsContainer = document.getElementById("comments-container");
   commentsContainer.innerHTML = "<h2>Comentarios</h2>";
@@ -175,19 +191,24 @@ function displayProductComments(comments) {
     commentsContainer.innerHTML += `<div class="text-center">No hay comentarios.</div>`;
   }
 }
+
+// Función para recargar la información del producto al hacer clic en productos relacionados
 function reloadProductInfo(id) {
   localStorage.setItem("selectedProductId", id);
   window.location.reload();
   navBar.scrollIntoView();
 }
 
+// Función para gestionar la interacción con las estrellas de calificación
 function starPainting(stars) {
   stars.forEach((star, index) => {
+    // Evento al pasar el ratón sobre una estrella
     star.addEventListener("mouseenter", () => {
       for (let i = 0; i <= index; i++) {
         stars[i].classList.add("checked");
       }
     });
+    // Evento de clic en una estrella
     star.addEventListener("click", () => {
       selectedStars = index + 1;
       document.getElementById("score").value = selectedStars;
@@ -196,6 +217,7 @@ function starPainting(stars) {
       });
       showStarSelection(stars);
     });
+    // Evento al salir del área de estrellas
     star.addEventListener("mouseleave", () => {
       stars.forEach((star) => {
         star.classList.remove("checked");
@@ -205,7 +227,7 @@ function starPainting(stars) {
   });
 }
 
-// Muestra la selección de estrellas, recibe un array de estrellas como parámetro
+// Función para mostrar la selección de estrellas, recibe un array de estrellas como parámetro
 function showStarSelection(stars) {
   stars.forEach((star, index) => {
     index < selectedStars
@@ -214,6 +236,7 @@ function showStarSelection(stars) {
   });
 }
 
+// Función para obtener la puntuación seleccionada por el usuario
 function getSelectedRating(stars) {
   let calificacion = 0;
   stars.forEach((star, index) => {
@@ -224,6 +247,7 @@ function getSelectedRating(stars) {
   return calificacion;
 }
 
+// Función para agregar comentarios
 function addComments(textArea, score, stars, myProductComments, productID) {
   // Obtiene el contenido del comentario y la puntuación
   const newCommentText = textArea.value;
@@ -263,9 +287,11 @@ function addComments(textArea, score, stars, myProductComments, productID) {
   // Muestra todos los comentarios, incluido el nuevo
   displayProductComments(comments.concat(myProductComments));
 
+  // Guarda los comentarios propios actualizados en el almacenamiento local
   localStorage.setItem("myCommments", JSON.stringify(myComments));
 }
 
+// Evento que se ejecuta cuando el DOM ha cargado completamente
 document.addEventListener("DOMContentLoaded", function () {
   const productID = localStorage.getItem("selectedProductId");
 
@@ -301,5 +327,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   });
 
+  // Almacena la barra de navegación para su posterior uso
   navBar = document.getElementsByTagName("nav")[0];
 });

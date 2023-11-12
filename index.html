@@ -1,178 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
-      rel="stylesheet"
-    />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+<head>
+    <!-- Configuración del documento  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Título de la página -->
+    <title>eMercado - Todo lo que busques está aquí</title>
+    
+    <!-- Enlaces a fuentes y estilos  -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    
+    <!--  Scripts para la barra de navegación y el modo oscuro -->
     <script src="js/navbar.js"></script>
     <script src="https://unpkg.com/darkreader@4.9.66/darkreader.js"></script>
     <script src="js/darkmode.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
+    <!--Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-      <div class="container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul
-            class="navbar-nav w-100 justify-content-between align-items-center"
-          >
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html"
-                ><img src="img\nav-index.png" alt="eMercado" width="200"
-              /></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sell.html">Vender</a>
-            </li>
-            <li id="user-info" class="nav-item">
-              <!-- Enlace para mostrar el botón de cerrar sesión -->
-              <a class="nav-link" id="username-display" href="#"> </a>
-              <!-- Botón de cerrar sesión (oculta inicialmente style="display: none;") -->
-              <ul
-                id="user-DropDown"
-                style="display: none"
-                class="position-absolute bg-dark dropdown-menu dropdown-menu-end"
-              >
-                <li>
-                  <a class="nav-link" href="my-profile.html">
-                    <i class="fa fa-user"></i> Mi perfil</a
-                  >
-                </li>
-
-                <li>
-                  <a class="nav-link" href="cart.html">
-                    <i class="fa fa-shopping-cart"></i> Mi carrito</a
-                  >
-                </li>
-
-                <li>
-                  <a id="mode-toggle" class="nav-link cursor-active">
-                    <i class="fas fa-sun"></i> Modo Claro
-                  </a>
-                </li>
-
-                <li>
-                  <a id="logout" class="nav-link" href="login.html">
-                    <i class="fa fa-sign-out-alt"></i> Cerrar sesión</a
-                  >
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <main>
-      <div class="jumbotron text-center"></div>
-      <div class="album py-5 bg-light">
         <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div
-                class="card mb-4 shadow-sm custom-card cursor-active"
-                id="autos"
-              >
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="img/cars_index.jpg"
-                  alt="Imgagen representativa de la categoría 'Autos'"
-                />
-                <h3 class="m-3">Autos</h3>
-                <div class="card-body">
-                  <p class="card-text">
-                    Los mejores precios en autos 0 kilómetro, de alta y media
-                    gama.
-                  </p>
-                </div>
-              </div>
+          <!-- Botón para dispositivos móviles-->>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <!--Lista de enlaces de la barra de navegación-->
+                <ul class="navbar-nav w-100 justify-content-between align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><img src="img\nav-index.png" alt="eMercado"
+                                width="200" /></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="categories.html">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Vender</a>
+                    </li>
+                    <li id="user-info" class="nav-item">
+                      <!-- Información del usuario y menú desplegable -->
+                        <a class="nav-link" id="username-display" href="#"> </a>
+                        <ul id="user-DropDown" style="display: none"
+                            class="position-absolute bg-dark dropdown-menu dropdown-menu-end">
+                            <li>
+                              <!-- Opciones del menú desplegable -->
+                                <a class="nav-link" href="my-profile.html">
+                                    <i class="fa fa-user"></i> Mi perfil
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="cart.html">
+                                    <i class="fa fa-shopping-cart"></i> Mi carrito
+                                </a>
+                            </li>
+                            <li>
+                              <!-- Botón para cambiar entre Modo Claro y Modo Oscuro -->
+                                <a id="mode-toggle" class="nav-link cursor-active">
+                                    <i class="fas fa-sun"></i> Modo Claro
+                                </a>
+                            </li>
+                            <li>
+                              <!-- Enlace para cerrar sesión -->
+                                <a id="logout" class="nav-link" href="login.html">
+                                    <i class="fa fa-sign-out-alt"></i> Cerrar sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <div class="col-md-4">
-              <div
-                class="card mb-4 shadow-sm custom-card cursor-active"
-                id="juguetes"
-              >
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="img/toys_index.jpg"
-                  alt="Imgagen representativa de la categoría 'Juguetes'"
-                />
-                <h3 class="m-3">Juguetes</h3>
-                <div class="card-body">
-                  <p class="card-text">
-                    Encuentra aquí los mejores precios para niños/as de
-                    cualquier edad.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div
-                class="card mb-4 shadow-sm custom-card cursor-active"
-                id="muebles"
-              >
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="img/furniture_index.jpg"
-                  alt="Imgagen representativa de la categoría 'Muebles'"
-                />
-                <h3 class="m-3">Muebles</h3>
-                <div class="card-body">
-                  <p class="card-text">
-                    Muebles antiguos, nuevos y para ser armados por uno mismo.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <a class="btn btn-light btn-lg btn-block" href="categories.html"
-              >Y mucho más!</a
-            >
-          </div>
         </div>
-      </div>
-    </main>
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>
-          Este sitio forma parte de
-          <a href="https://jovenesaprogramar.edu.uy/" target="_blank"
-            >Jovenes a Programar</a
-          >
-        </p>
-      </div>
-    </footer>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/init.js"></script>
+    </nav>
+    
+    <!-- Contenido principal -->
+    <main>
+        <div class="jumbotron text-center" id="jumbotron"></div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                     <!-- Álbum de categorías con tarjetas -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
+                            <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
+                                alt="Imgagen representativa de la categoría 'Autos'" />
+                            <h3 class="m-3">Autos</h3>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Los mejores precios en autos 0 kilómetro, de alta y media
+                                    gama.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">
+                            <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
+                                alt="Imgagen representativa de la categoría 'Juguetes'" />
+                            <h3 class="m-3">Juguetes</h3>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Encuentra aquí los mejores precios para niños/as de
+                                    cualquier edad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
+                            <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
+                                alt="Imgagen representativa de la categoría 'Muebles'" />
+                            <h3 class="m-3">Muebles</h3>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Muebles antiguos, nuevos y para ser armados  por uno mismo.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Enlace para ver más categorías -->
+                  <div class="row">
+                      <a class="btn btn-light btn-lg btn-block" href="categories.html">Y mucho más!</a>
+                  </div>
+              </div>
+          </div>
+      </main>
+      
+      <!-- Footer -->
+      <footer class="text-muted">
+          <div class="container">
+              <p class="float-end">
+                  <!-- Link para subir -->
+                  <a href="#">Volver arriba</a>
+              </p>
+              <p>
+                  Este sitio forma parte de
+                  <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+              </p>
+          </div>
+      </footer>
+      
+      <!-- JavaScript Scripts -->
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/index.js"></script>
+      <script src="js/init.js"></script>
   </body>
 </html>

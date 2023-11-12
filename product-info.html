@@ -76,7 +76,7 @@
                     <i class="fas fa-sun"></i> Modo Claro
                   </a>
                 </li>
-              
+
                 <li>
                   <a id="logout" class="nav-link" href="login.html">
                     <i class="fa fa-sign-out-alt"></i> Cerrar sesión</a
@@ -145,16 +145,23 @@
             </p>
 
             <p id="prodSoldCount" class="text-muted">Vendidos:</p>
-
-            <!-- <a
-              href="cart.html"
-              class="btn btn-outline-dark flex-shrink-0 btn-add-to-cart"
-            >
-              <i class="fa fa-shopping-cart"></i> Agregar al carrito
-            </a> -->
-            <button id="agregarAlCarrito" class="btn btn-outline-dark flex-shrink-0 btn-add-to-cart">
-              <i class="fa fa-shopping-cart"></i> Agregar al carrito
-            </button>
+            <div class="container">
+              <div class="form-group row">
+                <button
+                  id="agregarAlCarrito"
+                  class="btn btn-outline-dark flex-shrink-0 btn-add-to-cart col mt-2 mb-2 w-100"
+                >
+                  <i class="fa fa-shopping-cart"></i> Agregar al carrito
+                </button>
+                <input
+                  type="number"
+                  name="quantity"
+                  id="quantity"
+                  class="form-control col-2 w-25 m-2"
+                  placeholder="Cantidad"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -205,6 +212,33 @@
         <h2 class="mb-4 dark-mode">Productos relacionados</h2>
         <div class="row" id="relProdContainer"></div>
       </div>
+      <!--* Toast -->
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div
+          id="liveToast"
+          class="toast"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          data-bs-autohide="true"
+        >
+          <div class="toast-body">
+            Producto agregado al carrito
+            <div class="mt-2 pt-2 border-top">
+              <a href="cart.html" class="btn btn-success btn-sm">
+                Ir al carrito
+              </a>
+              <button
+                type="button"
+                class="btn btn-secondary btn-sm"
+                data-bs-dismiss="toast"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="text-muted">
       <div class="container">
@@ -219,6 +253,7 @@
         </p>
       </div>
     </footer>
+
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
@@ -230,5 +265,6 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/product-info.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

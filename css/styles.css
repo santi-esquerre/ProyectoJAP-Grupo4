@@ -90,7 +90,7 @@ nav a {
 }
 
 .jumbotron {
-  height: 50vh;
+  height: 30vw;
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
@@ -102,8 +102,21 @@ nav a {
   font-weight: bold;
 }
 
+.jumbotronDark {
+  height: 30vw;
+  padding: 5em inherit;
+  margin-bottom: 0;
+  background-color: #53C0FB;
+  background: url('../img/cover_back_black_mode.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  font-weight: bold;
+}
+
 @media (min-width: 768px) {
-  .jumbotron {
+  .jumbotron, .jumbotronDark {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }

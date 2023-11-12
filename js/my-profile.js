@@ -1,10 +1,13 @@
+// Evento que se ejecuta cuando el DOM ha cargado completamente
 document.addEventListener("DOMContentLoaded", () => {
+  // Verifica si el usuario está logueado, redirige al inicio de sesión si no
   const isLoggedIn = localStorage.getItem("isLoggedIn");
   if (!isLoggedIn) {
-    window.location.href = "./login.html"; // Redirige al inicio de sesión si no está logueado
+    window.location.href = "./login.html";
     return;
   }
 
+  // Obtiene y muestra la imagen de perfil almacenada localmente
   var dataImage = localStorage.getItem("imgData");
   if (dataImage) {
     let profileImg = document.getElementById("profile-img");
@@ -62,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Función para guardar la foto de perfil seleccionada por el usuario
 function saveProfilePhoto() {
   const fileInput = document.getElementById("Img");
   const file = fileInput.files[0];
@@ -70,6 +74,7 @@ function saveProfilePhoto() {
   }
   document.getElementById("profile-img").src = URL.createObjectURL(file);
 
+  // Lee y guarda la imagen en el almacenamiento local
   const imgData = new FileReader();
   imgData.readAsDataURL(file);
 
@@ -78,4 +83,5 @@ function saveProfilePhoto() {
   });
 }
 
+// Evento que se ejecuta al cambiar el archivo de imagen de perfil
 document.getElementById("Img").addEventListener("change", saveProfilePhoto);
